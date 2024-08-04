@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {InvestmentCalculatorService} from "../calculator/services/investment-calculator.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'investment-calculator';
+  title: string = 'investment-calculator';
+  investmentCalculatorService: InvestmentCalculatorService = inject(InvestmentCalculatorService);
 }
