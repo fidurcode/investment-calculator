@@ -1,8 +1,9 @@
-name: Build and Deploy Angular App
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -20,10 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Angular app
-        run: npm run build -- --output-path=dist/investment-calculator
+      - name: Build project
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/investment-calculator
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx angular-cli-ghpages --dir=dist/investment-calculator --no-silent
