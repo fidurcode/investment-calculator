@@ -33,4 +33,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT }}
         run: |
-          npx angular-cli-ghpages --dir=docs/investment-calculator --no-silent
+          npx angular-cli-ghpages --dir=dist/investment-calculator --no-silent
